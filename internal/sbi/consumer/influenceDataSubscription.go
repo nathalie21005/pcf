@@ -57,9 +57,6 @@ func buildTrafficInfluSub(request models.SmPolicyContextData) models.TrafficInfl
 		Snssais:          []models.Snssai{*request.SliceInfo},
 		InternalGroupIds: request.InterGrpIds,
 		Supis:            []string{request.Supi},
-		NotificationUri: pcf_context.GetSelf().GetIPv4Uri() +
-			pcf_context.InfluenceDataUpdateNotifyUri + "/" +
-			request.Supi + "/" + strconv.Itoa(int(request.PduSessionId)),
 		// TODO: support expiry time and resend subscription when expired
 	}
 	return trafficInfluSub
